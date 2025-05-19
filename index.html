@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Librista - Электронная библиотека</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Librista</h1>
+                    </a>
+                </div>
+
+                <!-- Кнопка бургер-меню для мобильных устройств -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <span class="burger-icon">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+            </span>
+          </button>
+
+                <!-- Контейнер для элементов, которые будут скрыты на мобильных устройствах -->
+                <div class="header-nav-container header-right" id="header-nav-container">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html" class="active">Главная</a></li>
+                            <li><a href="catalog.html">Каталог</a></li>
+                            <li><a href="statistics.html">Статистика</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-right">
+                        <div class="search-container">
+                            <input type="text" id="header-search" placeholder="Поиск книг..." />
+                            <button id="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+              </button>
+                        <div class="auth-buttons" id="auth-buttons">
+                            <button id="login-btn" class="btn">Войти</button>
+                            <button id="register-btn" class="btn btn-primary">
+                  Регистрация
+                </button>
+                        </div>
+                        <div class="user-profile" id="user-profile" style="display: none">
+                            <a href="404.html" class="profile-link">
+                                <img src="https://picsum.photos/50/50" alt="Профиль" class="profile-img" />
+                                <span id="username">Пользователь</span>
+                            </a>
+                            <button id="logout-btn" class="btn">Выйти</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мобильное меню, которое будет выезжать при нажатии на бургер -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <button class="mobile-menu-close" id="mobile-menu-close">
+            <i class="fas fa-times"></i>
+          </button>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="statistics.html">Статистика</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-search">
+                    <input type="text" id="mobile-search" placeholder="Поиск книг..." />
+                    <button id="mobile-search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+                </div>
+                <div class="mobile-auth" id="mobile-auth-buttons">
+                    <button id="mobile-login-btn" class="btn btn-block">Войти</button>
+                    <button id="mobile-register-btn" class="btn btn-primary btn-block">
+              Регистрация
+            </button>
+                </div>
+                <div class="mobile-user-profile" id="mobile-user-profile" style="display: none">
+                    <a href="404.html" class="profile-link">
+                        <img src="https://picsum.photos/50/50" alt="Профиль" class="profile-img" />
+                        <span id="mobile-username">Пользователь</span>
+                    </a>
+                    <button id="mobile-logout-btn" class="btn btn-block">Выйти</button>
+                </div>
+                <div class="mobile-theme-toggle">
+                    <button id="mobile-theme-toggle" class="btn btn-block">
+              <i class="fas fa-moon"></i> Сменить тему
+            </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>Добро пожаловать в Librista</h2>
+                        <p>
+                            Ваша персональная электронная библиотека с тысячами книг на любой вкус
+                        </p>
+                        <a href="catalog.html" class="btn btn-primary">Начать читать</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="pictures/photobook.jpg" alt="Библиотека" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-books">
+            <div class="container">
+                <h2>Новинки библиотеки</h2>
+                <div class="slider-container">
+                    <button class="slider-arrow prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+                    <div class="book-slider" id="new-books-slider">
+                        <!-- Книги будут добавлены через JavaScript -->
+                    </div>
+                    <button class="slider-arrow next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-books">
+            <div class="container">
+                <h2>Популярные книги</h2>
+                <div class="slider-container">
+                    <button class="slider-arrow prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+                    <div class="book-slider" id="popular-books-slider">
+                        <!-- Книги будут добавлены через JavaScript -->
+                    </div>
+                    <button class="slider-arrow next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="container">
+                <h2>Категории книг</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <img src="pictures/book1.png" alt="Художественная литература" />
+                        <h3>Художественная литература</h3>
+                        <a href="catalog.html?category=fiction" class="btn">Смотреть</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="pictures/book2.png" alt="Научная литература" />
+                        <h3>Научная литература</h3>
+                        <a href="catalog.html?category=science" class="btn">Смотреть</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="pictures/book3.png" alt="Бизнес" />
+                        <h3>Бизнес</h3>
+                        <a href="catalog.html?category=business" class="btn">Смотреть</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="pictures/book4.png" alt="Детские книги" />
+                        <h3>Детские книги</h3>
+                        <a href="catalog.html?category=children" class="btn">Смотреть</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Librista</h2>
+                    <p>Ваша персональная электронная библиотека</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="statistics.html">Статистика</a></li>
+                        <li><a href="404.html">Профиль</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Категории</h3>
+                    <ul>
+                        <li>
+                            <a href="catalog.html?category=fiction">Художественная литература</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?category=science">Научная литература</a>
+                        </li>
+                        <li><a href="catalog.html?category=business">Бизнес</a></li>
+                        <li>
+                            <a href="catalog.html?category=children">Детские книги</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-envelope"></i> info@librista.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Librista. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Вход в аккаунт</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required />
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+            <p>
+                Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Регистрация</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Имя</label>
+                    <input type="text" id="register-name" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Подтвердите пароль</label>
+                    <input type="password" id="register-confirm-password" required />
+                </div>
+                <button type="submit" class="btn btn-primary">
+            Зарегистрироваться
+          </button>
+            </form>
+            <p>Уже есть аккаунт? <a href="#" id="show-login">Войти</a></p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

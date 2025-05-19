@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Страница не найдена - Librista</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      .error-container {
+        text-align: center;
+        padding: 100px 0;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .error-code {
+        font-size: 120px;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        line-height: 1;
+      }
+
+      .error-title {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: var(--text-color);
+      }
+
+      .error-message {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: var(--text-light);
+      }
+
+      .error-image {
+        max-width: 300px;
+        margin-bottom: 30px;
+      }
+
+      .error-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .book-animation {
+        position: relative;
+        width: 100px;
+        height: 150px;
+        margin: 0 auto 40px;
+        perspective: 1000px;
+      }
+
+      .book {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate 5s infinite linear;
+      }
+
+      .book-cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        transform: translateZ(10px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .book-page {
+        position: absolute;
+        width: 95%;
+        height: 95%;
+        background-color: white;
+        border-radius: 3px;
+        left: 2.5%;
+        top: 2.5%;
+        transform: translateZ(5px);
+      }
+
+      .book-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-dark);
+        border-radius: 5px;
+        transform: translateZ(-10px);
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="light-theme">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="index.html">
+              <h1>Librista</h1>
+            </a>
+          </div>
+
+          <!-- Кнопка бургер-меню для мобильных устройств -->
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <span class="burger-icon">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+            </span>
+          </button>
+
+          <!-- Контейнер для элементов, которые будут скрыты на мобильных устройствах -->
+          <div
+            class="header-nav-container header-right"
+            id="header-nav-container">
+            <nav>
+              <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="statistics.html">Статистика</a></li>
+              </ul>
+            </nav>
+            <div class="header-right">
+              <div class="search-container">
+                <input
+                  type="text"
+                  id="header-search"
+                  placeholder="Поиск книг..." />
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+              </div>
+              <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+              </button>
+              <div class="auth-buttons" id="auth-buttons">
+                <button id="login-btn" class="btn">Войти</button>
+                <button id="register-btn" class="btn btn-primary">
+                  Регистрация
+                </button>
+              </div>
+              <div class="user-profile" id="user-profile" style="display: none">
+                <a href="404.html" class="profile-link">
+                  <img
+                    src="https://picsum.photos/50/50"
+                    alt="Профиль"
+                    class="profile-img" />
+                  <span id="username">Пользователь</span>
+                </a>
+                <button id="logout-btn" class="btn">Выйти</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Мобильное меню, которое будет выезжать при нажатии на бургер -->
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+          <button class="mobile-menu-close" id="mobile-menu-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mobile-menu-content">
+          <nav class="mobile-nav">
+            <ul>
+              <li><a href="index.html" class="active">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="statistics.html">Статистика</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-search">
+            <input type="text" id="mobile-search" placeholder="Поиск книг..." />
+            <button id="mobile-search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div class="mobile-auth" id="mobile-auth-buttons">
+            <button id="mobile-login-btn" class="btn btn-block">Войти</button>
+            <button id="mobile-register-btn" class="btn btn-primary btn-block">
+              Регистрация
+            </button>
+          </div>
+          <div
+            class="mobile-user-profile"
+            id="mobile-user-profile"
+            style="display: none">
+            <a href="404.html" class="profile-link">
+              <img
+                src="https://picsum.photos/50/50"
+                alt="Профиль"
+                class="profile-img" />
+              <span id="mobile-username">Пользователь</span>
+            </a>
+            <button id="mobile-logout-btn" class="btn btn-block">Выйти</button>
+          </div>
+          <div class="mobile-theme-toggle">
+            <button id="mobile-theme-toggle" class="btn btn-block">
+              <i class="fas fa-moon"></i> Сменить тему
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="error-container">
+          <div class="book-animation">
+            <div class="book">
+              <div class="book-cover">404</div>
+              <div class="book-page"></div>
+              <div class="book-back"></div>
+            </div>
+          </div>
+          <div class="error-code">404</div>
+          <h1 class="error-title">Страница не найдена</h1>
+          <p class="error-message">
+            К сожалению, запрашиваемая страница не существует или была
+            перемещена. Проверьте правильность введенного URL или воспользуйтесь
+            навигацией сайта.
+          </p>
+          <div class="error-actions">
+            <a href="index.html" class="btn btn-primary">На главную</a>
+            <a href="catalog.html" class="btn">В каталог</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>Librista</h2>
+            <p>Ваша персональная электронная библиотека</p>
+          </div>
+          <div class="footer-links">
+            <h3>Навигация</h3>
+            <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Каталог</a></li>
+              <li><a href="statistics.html">Статистика</a></li>
+              <li><a href="404.html">Профиль</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Категории</h3>
+            <ul>
+              <li>
+                <a href="catalog.html?category=fiction"
+                  >Художественная литература</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?category=science">Научная литература</a>
+              </li>
+              <li><a href="catalog.html?category=business">Бизнес</a></li>
+              <li>
+                <a href="catalog.html?category=children">Детские книги</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Контакты</h3>
+            <p><i class="fas fa-envelope"></i> info@librista.com</p>
+            <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Librista. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
